@@ -11,6 +11,13 @@ namespace PollingApi
 
             builder.Services.AddControllers();
 
+            builder.Services.AddSpaStaticFiles(configuration =>
+            {
+
+                configuration.RootPath = "PollingClient/dist";
+
+            });
+
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
@@ -25,7 +32,6 @@ namespace PollingApi
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
