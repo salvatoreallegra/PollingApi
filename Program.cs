@@ -20,7 +20,7 @@ namespace PollingApi
             builder.Services.AddSpaStaticFiles(configuration =>
             {
 
-                configuration.RootPath = "PollingClient/dist";
+                configuration.RootPath = "pollingclient/dist";
 
             });
 
