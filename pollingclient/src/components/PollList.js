@@ -23,14 +23,14 @@ const PollList = () => {
                 <Card.Title>{poll.question}</Card.Title>
 
                 {/* Button to vote on the poll */}
-                <Link to={`/poll/${poll.id}`}>
+                <Link to={`/polls/${poll.id}`}>
                   <Button variant="primary" className="m-2">
                     Vote
                   </Button>
                 </Link>
 
                 {/* Button to view poll results */}
-                <Link to={`/poll/${poll.id}/results`}>
+                <Link to={`/polls/${poll.id}/results`}>
                   <Button variant="info" className="m-2">
                     View Results
                   </Button>
