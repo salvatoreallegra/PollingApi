@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import PollList from "./components/PollList";
+import PollDetails from "./components/PollDetails";
+import PollResults from "./components/PollResults";
+import Home from "./components/Home";
+import CreatePoll from "./components/CreatePoll";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} /> {}
+        <Route path="/polls" element={<PollList />} /> {}
+        <Route path="/poll/:pollId" element={<PollDetails />} /> {}
+        <Route path="/poll/:pollId/results" element={<PollResults />} /> {}
+        <Route path="/create-poll" element={<CreatePoll />} /> {}
+      </Routes>
+    </Router>
   );
 }
 
