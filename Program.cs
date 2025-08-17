@@ -1,4 +1,7 @@
 
+using PollingApi.Hubs;
+using PollingApi.Services;
+
 namespace PollingApi
 {
     public class Program
@@ -10,11 +13,26 @@ namespace PollingApi
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddSignalR();
+            builder.Services
+                .AddSingleton<PollService>();
 
             builder.Services.AddSpaStaticFiles(configuration =>
             {
 
                 configuration.RootPath = "PollingClient/dist";
+
+            });
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigins", policy =>
+                {
+                    policy.WithOrigins("http://localhost:3000")
+                          .AllowAnyMethod()
+                          .AllowAnyHeader()
+                          .AllowCredentials();
+                });
 
             });
 
@@ -33,7 +51,12 @@ namespace PollingApi
 
             app.UseAuthorization();
 
+            app.UseCors("AllowSpecificOrigins");
+
             app.MapControllers();
+
+            app.MapHub<VoteHub>("/voteHub");
+
 
             app.Run();
         }
