@@ -1,6 +1,6 @@
 # PollingApi
 
-Real-time polling API with a lightweight JavaScript client. The solution includes an ASP.NET Core Web API, SignalR hub for live updates, and a simple web client in `pollingclient/`. Folders include `Controllers`, `Hubs`, `Models`, and `Services`. 
+Real-time polling API with a react client. The solution includes an ASP.NET Core Web API, SignalR hub for live updates, and a simple web client in `pollingclient/`. Folders include `Controllers`, `Hubs`, `Models`, and `Services`. 
 
 ---
 
